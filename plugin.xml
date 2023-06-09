@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-ocean-conversion" version="1.0.0">
+    <name>OceanConversionCordovaPlugin</name>
+    <description>Ocean Conversion Cordova Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,TrackingIO,reyun,sdk</keywords>
+    <repo>https://github.com/tadazly/cordova-plugin-ocean-conversion.git</repo>
+
+    <preference name="OCEAN_APPID" />
+
+    <js-module src="www/OceanConversion.js" name="OceanConversion">
+        <clobbers target="Ocean" />
+        <clobbers target="cordova.plugins.OceanConversion" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="OceanConversion">
+                <param name="android-package" value="com.tadazly.oceanconversion.OceanConversionCordovaPlugin" />
+            </feature>
+            <preference name="OCEAN_APPID" value="$OCEAN_APPID" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS" />
+        </config-file>
+
+
+        <source-file src="src/android/OceanConversionCordovaPlugin.java" target-dir="src/com/tadazly/oceanconversion" />
+        <source-file src="src/android/libs/encryptor-1.0.1.noasan.aar" target-dir="libs" />
+        <source-file src="src/android/libs/if_encryptor-1.0.0-rc.5.aar" target-dir="libs" />
+        <source-file src="src/android/libs/RangersAppLog-All-convert-6.14.3.aar" target-dir="libs" />
+        <source-file src="src/android/libs/RangersAppLog-DevTools-2.2.1.aar" target-dir="libs" />
+        <source-file src="src/android/libs/RangersAppLog-Lite-cn-6.14.3.aar" target-dir="libs" />
+        <source-file src="src/android/libs/RangersAppLog-Log-1.0.5.aar" target-dir="libs" />
+        <framework src="src/android/ocean-conversion-build.gradle" custom="true" type="gradleReference" />
+    </platform>
+</plugin>

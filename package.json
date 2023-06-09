@@ -1,0 +1,31 @@
+{
+  "name": "cordova-plugin-ocean-conversion",
+  "version": "1.0.0",
+  "description": "cordova用巨量广告转化安卓端SDK",
+  "cordova": {
+    "id": "cordova-plugin-ocean-conversion",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadazly/cordova-plugin-ocean-conversion.git"
+  },
+  "keywords": [
+    "cordova",
+    "ocean",
+    "ocean-engine",
+    "ocean-transfer",
+    "sdk",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "tadazly",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/tadazly/cordova-plugin-ocean-conversion/issues"
+  },
+  "homepage": "https://github.com/tadazly/cordova-plugin-ocean-conversion#readme",
+  "types": "./types/index.d.ts"
+}
