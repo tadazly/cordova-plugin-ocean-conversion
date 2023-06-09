@@ -67,7 +67,7 @@ cordova plugin add /local/path/to/cordova-plugin-ocean-conversion --variable OCE
          * 设置数据上送地址
          * @default UriConstants.DEFAULT
          */
-        uriConfig?: string,
+        uriConfig?: number,
         /**
          * 建议关停获取IMEI（出于合规考虑）
          * @default false
@@ -152,4 +152,12 @@ UserUniqueId作为用户的唯一的标识，传入此值可以以用户为单�
 
 ``` typescript
 Ocean.setUserUniqueID("YourUserAccountId");
+```
+
+### 7.测试接口
+``` typescript
+Ocean.testApi(
+    {}, 
+    result => console.log(result)
+)
 ```

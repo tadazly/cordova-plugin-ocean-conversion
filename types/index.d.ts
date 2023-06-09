@@ -8,7 +8,7 @@ declare namespace Tracking {
          * 设置数据上送地址
          * @default UriConstants.DEFAULT
          */
-        uriConfig?: string,
+        uriConfig?: number,
         /**
          * 建议关停获取IMEI（出于合规考虑）
          * @default false
@@ -103,5 +103,10 @@ declare namespace Tracking {
      * @param account 设置您自己的账号体系ID或设备ID, 并保证其唯一性 ！
      * @example Ocean.setUserUniqueID("YourUserAccountId");
      */
-    function setUserUniqueID(account: string);
+    function setUserUniqueID(account: string): void;
+
+    /**
+     * 使用测试数据测试sdk接口
+     */
+    function testApi(params: initParameters, callback?: (result: boolean)=> void): void;
 }
