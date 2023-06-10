@@ -1,5 +1,4 @@
-# 本项目尚未完成测试，敬请期待（Caution：Under Construction）
-
+# Cordova巨量广告转化SDK插件
 # cordova-plugin-ocean-conversion
 
 ## 一、说明
@@ -22,7 +21,7 @@
 
 - 安装时使用的 OCEAN_APPID 需要在[根据文档自行申请](https://bytedance.feishu.cn/docx/doxcnjAFo7iUImEIq9DuA7Tr69g)
 
-1. 通过npm安装（还没有上传npm，装不了）
+1. 通过npm安装
 ``` shell
 cordova plugin add cordova-plugin-ocean-conversion --variable OCEAN_APPID=7758258
 ```
@@ -46,11 +45,14 @@ cordova plugin add /local/path/to/cordova-plugin-ocean-conversion --variable OCE
 
 ### 2.项目配置
 - Android
-    - 无需额外配置
+    - 无需额外配置,若装完插件使用cordova build failed,可以用android studio打开项目并执行rebuild project.
 
 ### 3.使用方式
 
-插件对象可以在js代码中使用[Ocean](https://github.com/tadazly/cordova-plugin-ocean-conversion/blob/main/plugin.xml#L14)或者[cordova.plugins.OceanConversion](https://github.com/tadazly/cordova-plugin-ocean-conversion/blob/main/plugin.xml#L15)调用
+插件对象可以在js代码中使用[Ocean](https://github.com/tadazly/cordova-plugin-ocean-conversion/blob/main/plugin.xml#L13)或者[cordova.plugins.OceanConversion](https://github.com/tadazly/cordova-plugin-ocean-conversion/blob/main/plugin.xml#L14)调用
+
+### 4.通过巨量的数据检测
+若只是为了通过巨量的数据检测,直接调用Ocean.testApi()即可,会执行init并调用必传的关键埋点.
 
 ## 四、API使用说明
 
@@ -155,6 +157,7 @@ Ocean.setUserUniqueID("YourUserAccountId");
 ```
 
 ### 7.测试接口
+[内部实现](https://github.com/tadazly/cordova-plugin-ocean-conversion/blob/main/www/OceanConversion.js#L31)
 ``` typescript
 Ocean.testApi(
     {}, 
