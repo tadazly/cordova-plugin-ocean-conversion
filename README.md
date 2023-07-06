@@ -54,6 +54,10 @@ cordova plugin add /local/path/to/cordova-plugin-ocean-conversion --variable OCE
 ### 4.通过巨量的数据检测
 若只是为了通过巨量的数据检测,直接调用Ocean.testApi()即可,会执行init并调用必传的关键埋点.
 
+### 5.坑
+    - 巨量没有设备白名单，所以联调同一台设备可能会收不到事件。
+    - 如需要和热云sdk一起用，建议先初始化巨量，再初始化热云。
+
 ## 四、API使用说明
 
 ### 1.初始化SDK

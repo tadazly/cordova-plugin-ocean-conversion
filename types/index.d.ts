@@ -1,4 +1,4 @@
-declare namespace Tracking {
+declare namespace Ocean {
     /** 初始化参数 */
     type initParameters = {
         appId?: string,
