@@ -57,6 +57,9 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
         else if (action.equals("setUserUniqueID")) {
             return this.setUserUniqueID(args, callbackContext);
         }
+        else if (action.equals("getChannel")) {
+            return this.getChannel(args, callbackContext);
+        }
         return false;
     }
 

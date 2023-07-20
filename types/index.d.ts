@@ -128,7 +128,7 @@ declare namespace Ocean {
     /**
      * 分包SDK获取渠道名称
      */
-    function getChannel(onSuccess: (channel: string) => void, onError?: () => void): void;
+    function getChannel(callback: (channel: string) => void): void;
 
     /**
      * 使用测试数据测试sdk接口
