@@ -44,7 +44,27 @@ declare namespace Ocean {
          * 设备的OAID信息采集默认开启
          * @default true
          */
-        oaidEnabled?: boolean
+        oaidEnabled?: boolean,
+        /**
+         * 设备的 GAID 采集默认关闭
+         * @default false
+         */
+        gaidEnabled?: boolean,
+        /**
+         * 设备的 ICCID 采集默认开启
+         * @default true
+         */
+        iccIdEnable?: boolean,
+        /**
+         * 设备的 SN 采集默认开启
+         * @default true
+         */
+        serialNumberEnable?: boolean,
+        /**
+         * 设备的运营商信息默认采集
+         * @default true
+         */
+        operatorInfoEnabled?: boolean,
     }
 
     /**
@@ -104,6 +124,11 @@ declare namespace Ocean {
      * @example Ocean.setUserUniqueID("YourUserAccountId");
      */
     function setUserUniqueID(account: string): void;
+
+    /**
+     * 分包SDK获取渠道名称
+     */
+    function getChannel(onSuccess: (channel: string) => void, onError?: () => void): void;
 
     /**
      * 使用测试数据测试sdk接口

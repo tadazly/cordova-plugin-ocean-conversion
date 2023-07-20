@@ -28,6 +28,10 @@ module.exports = {
         exec(onSuccess, onError, 'OceanConversion', 'setUserUniqueID', [account]);
     },
 
+    getChannel(onSuccess, onError) {
+        exec(onSuccess, onError, 'OceanConversion', 'getChannel', []);
+    },
+
     testApi(params, callback) {
         var initParams = { channel: "testOcean", logEnable: true };
         if (params) {

@@ -3,16 +3,18 @@
 
 ## 一、说明
 
-### Cordova项目接入巨量广告转化安卓端SDK（6.14.3）
+### Cordova项目接入巨量广告转化安卓端SDK（6.15.4）
 
 - [巨量转化SDK文档](https://bytedance.feishu.cn/docx/doxcnjAFo7iUImEIq9DuA7Tr69g)
 - [火山SDK文档](https://www.volcengine.com/docs/6287/65802)
+- [应用管理中心分包SDK集成说明文档](https://bytedance.feishu.cn/docs/doccnWHO1ZOWn3YrZVblvoEw4th#)
 
 
 ### SDK版本
 - Android
-    - Lite-cn_libs@6.14.3.zip 国内采集SDK    （最新版）
-    - RangersAppLog-Lite-cn-6.14.1.aar 国内采集SDK 
+    - Lite_libs@6.15.4.zip   （最新版）
+    - Lite-cn_libs@6.14.3.zip 国内采集SDK
+    - humesdk@1.0.0.aar       分包SDK
 - iOS 
     - 无
 
@@ -54,9 +56,15 @@ cordova plugin add /local/path/to/cordova-plugin-ocean-conversion --variable OCE
 ### 4.通过巨量的数据检测
 若只是为了通过巨量的数据检测,直接调用Ocean.testApi()即可,会执行init并调用必传的关键埋点.
 
-### 5.坑
+### 5.渠道号读取
+1. 同步读取
+2. 不需要初始化，HumeSDK做了缓存，第⼀次读取时间为10ms以内，第⼆次读取速度会 特别快。
+3. 读取渠道号后即可通过sdk采集上报
+
+### 6.坑
     - 巨量没有设备白名单，所以联调同一台设备可能会收不到事件。
     - 如需要和热云sdk一起用，建议先初始化巨量，再初始化热云。
+
 
 ## 四、API使用说明
 
@@ -160,7 +168,15 @@ UserUniqueId作为用户的唯一的标识，传入此值可以以用户为单�
 Ocean.setUserUniqueID("YourUserAccountId");
 ```
 
-### 7.测试接口
+### 7.安卓分包SDK获取渠道号
+如果获取不到会返回'unknown'
+``` typescript
+Ocean.getChannel(
+    channel => console.log(channel)
+)
+```
+
+### 8.测试接口
 [内部实现](https://github.com/tadazly/cordova-plugin-ocean-conversion/blob/main/www/OceanConversion.js#L31)
 ``` typescript
 Ocean.testApi(

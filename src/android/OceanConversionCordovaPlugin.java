@@ -8,6 +8,7 @@ import com.bytedance.applog.AppLog;
 import com.bytedance.applog.InitConfig;
 import com.bytedance.applog.game.GameReportHelper;
 import com.bytedance.applog.util.UriConstants;
+import com.bytedance.hume.readapk.HumeSDK;
 
 import org.apache.cordova.CordovaArgs;
 import org.apache.cordova.CordovaPlugin;
@@ -83,6 +84,10 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
             boolean encryptAndCompress = true;
             boolean enablePlay = true;
             boolean oaidEnabled = true;
+            boolean gaidEnabled = false;
+            boolean iccIdEnable = true;
+            boolean serialNumberEnable = true;
+            boolean operatorInfoEnabled = true;
             if (initParams.has("appId")) {
                 appId = initParams.getString("appId");
             }
@@ -113,6 +118,21 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
             if (initParams.has("oaidEnabled")) {
                 oaidEnabled = initParams.getBoolean("oaidEnabled");
             }
+            if (initParams.has("oaidEnabled")) {
+                oaidEnabled = initParams.getBoolean("oaidEnabled");
+            }
+            if (initParams.has("gaidEnabled")) {
+                gaidEnabled = initParams.getBoolean("gaidEnabled");
+            }
+            if (initParams.has("iccIdEnable")) {
+                iccIdEnable = initParams.getBoolean("iccIdEnable");
+            }
+            if (initParams.has("serialNumberEnable")) {
+                serialNumberEnable = initParams.getBoolean("serialNumberEnable");
+            }
+            if (initParams.has("operatorInfoEnabled")) {
+                operatorInfoEnabled = initParams.getBoolean("operatorInfoEnabled");
+            }
             final InitConfig config = new InitConfig(appId, channel);
             config.setUriConfig(urlConfig);
             config.setImeiEnable(imeiEnable);
@@ -121,6 +141,10 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
             config.setMacEnable(macEnable);
             config.setEnablePlay(enablePlay);
             config.setOaidEnabled(oaidEnabled);
+            config.setGaidEnabled(gaidEnabled);
+            config.setIccIdEnabled(iccIdEnable);
+            config.setSerialNumberEnable(serialNumberEnable);
+            config.setOperatorInfoEnabled(operatorInfoEnabled);
             AppLog.setEncryptAndCompress(encryptAndCompress);
             AppLog.init(app, config, yourApp);
             hasInitSdk = true;
@@ -185,11 +209,18 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
         return true;
     }
 
+    private boolean getChannel(CordovaArgs args, CallbackContext callbackContext) throws JSONException {
+        String channel = HumeSDK.getChannel(cordova.getContext());
+        if (channel != null) {
+            callbackContext.success(channel);
+        } else {
+            callbackContext.success("unknown");
+        }
+        return true;
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (hasInitSdk) {
-
-        }
     }
 }
