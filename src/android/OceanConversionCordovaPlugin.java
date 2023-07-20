@@ -217,7 +217,7 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
         if (channel != null) {
             callbackContext.success(channel);
         } else {
-            callbackContext.success("unknown");
+            callbackContext.success("");
         }
         return true;
     }
