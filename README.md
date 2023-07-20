@@ -3,7 +3,7 @@
 
 ## 一、说明
 
-### Cordova项目接入巨量广告转化安卓端SDK（6.15.4）
+### Cordova项目接入巨量广告转化安卓端SDK（v6.15.4）
 
 - [巨量转化SDK文档](https://bytedance.feishu.cn/docx/doxcnjAFo7iUImEIq9DuA7Tr69g)
 - [火山SDK文档](https://www.volcengine.com/docs/6287/65802)
@@ -189,7 +189,7 @@ Ocean.setUserUniqueID("YourUserAccountId");
 ```
 
 ### 7.安卓分包SDK获取渠道号
-如果获取不到会返回'unknown'
+如果获取不到返回空字符串''
 ``` typescript
 Ocean.getChannel(
     channel => console.log(channel)
