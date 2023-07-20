@@ -64,7 +64,7 @@ declare namespace Ocean {
          * 设备的运营商信息默认采集
          * @default true
          */
-        operatorInfoEnabled?: boolean,
+        operatorInfoEnabled?: boolean
     }
 
     /**
