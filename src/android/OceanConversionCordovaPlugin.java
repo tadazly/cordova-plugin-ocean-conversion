@@ -37,7 +37,10 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, CordovaArgs args, CallbackContext callbackContext) throws JSONException {
         Log.d(LOG_TAG, "Ocean Plugin Action:" + action);
-        if (action.equals("init")) {
+        if (action.equals("getChannel")) {
+            return this.getChannel(args, callbackContext);
+        }
+        else if (action.equals("init")) {
             return this.init(args, callbackContext);
         }
         if (!hasInitSdk) {
@@ -56,9 +59,6 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
         }
         else if (action.equals("setUserUniqueID")) {
             return this.setUserUniqueID(args, callbackContext);
-        }
-        else if (action.equals("getChannel")) {
-            return this.getChannel(args, callbackContext);
         }
         return false;
     }
