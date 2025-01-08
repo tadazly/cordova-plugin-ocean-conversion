@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-ocean-conversion",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "cordova用巨量广告转化安卓端SDK",
   "cordova": {
     "id": "cordova-plugin-ocean-conversion",

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.util.Log;
 
+import com.bytedance.ads.convert.BDConvert;
 import com.bytedance.applog.AppLog;
 import com.bytedance.applog.InitConfig;
 import com.bytedance.applog.game.GameReportHelper;
@@ -149,6 +150,7 @@ public class OceanConversionCordovaPlugin extends CordovaPlugin {
             config.setSerialNumberEnable(serialNumberEnable);
             config.setOperatorInfoEnabled(operatorInfoEnabled);
             AppLog.setEncryptAndCompress(encryptAndCompress);
+            BDConvert.getInstance().init(app, AppLog.getInstance());
             AppLog.init(app, config, yourApp);
             hasInitSdk = true;
             callbackContext.success();

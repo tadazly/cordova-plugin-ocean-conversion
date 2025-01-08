@@ -3,7 +3,7 @@
 
 ## 一、说明
 
-### Cordova项目接入巨量广告转化安卓端SDK（v6.15.4）
+### Cordova项目接入巨量广告转化安卓端SDK（v6.16.9）
 
 - [巨量转化SDK文档](https://bytedance.feishu.cn/docx/doxcnjAFo7iUImEIq9DuA7Tr69g)
 - [火山SDK文档](https://www.volcengine.com/docs/6287/65802)
@@ -12,9 +12,9 @@
 
 ### SDK版本
 - Android
-    - Lite_libs@6.15.4.zip   （最新版）
-    - Lite-cn_libs@6.14.3.zip 国内采集SDK
-    - humesdk@1.0.0.aar       分包SDK
+    - RangersAppLog-Lite-cn:6.16.9  Applog 上报组件
+    - AppConvert:1.3.2.1            商业化转化组件
+    - humesdk@1.0.0.aar             分包SDK
 - iOS 
     - 无
 
