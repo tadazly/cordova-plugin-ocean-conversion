@@ -36,4 +36,27 @@
         <source-file src="src/android/libs/humesdk-1.0.0.aar" target-dir="libs" />
         <framework src="src/android/ocean-conversion-build.gradle" custom="true" type="gradleReference" />
     </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="*-Info.plist" parent="NSUserTrackingUsageDescription">
+          <string>请放心，开启权限不会获取你在其他站点的信息，该权限仅用于标识设备并保障游戏服务安全</string>
+        </config-file>
+        <config-file target="config.xml" parent="/*">
+            <feature name="OceanConversion">
+                <param name="ios-package" value="OceanConversionCordovaPlugin"/>
+            </feature>
+            <preference name="OCEAN_APPID" value="$OCEAN_APPID" />
+        </config-file>
+
+        <!-- Plugin source code -->
+        <header-file src="src/ios/OceanConversionCordovaPlugin.h" />
+        <source-file src="src/ios/OceanConversionCordovaPlugin.m" />
+
+        <!-- TrackingIO SDK Official -->
+        <header-file src="src/ios/libs/BDASignalManager.h" />
+        <header-file src="src/ios/libs/BDASignalDefinitions.h" />
+        <source-file src="src/ios/libs/libBDASignalSDK.a" framework="true" />
+
+    </platform>
 </plugin>

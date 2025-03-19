@@ -16,7 +16,7 @@
     - AppConvert:1.3.2.1            商业化转化组件
     - humesdk@1.0.0.aar             分包SDK
 - iOS 
-    - 无
+    - [libBDASignalSDK@1.0.3](https://bytedance.larkoffice.com/docx/CgYBdVzoBogND2xv7PhcSfFNnyc)
 
 ## 二、接入流程
 ### 1.在项目中安装插件
